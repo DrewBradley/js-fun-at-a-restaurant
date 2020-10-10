@@ -15,12 +15,13 @@ function addMenuItem(place, item){
 };
 
 function removeMenuItem(place, name, meal){
-  // if (place.menus[meal].name){
-  place.menus[meal].splice(1, name);
+  var passedItem = (food) => (food.name === name);
+  if (place.menus[meal].some(passedItem)){
+  place.menus[meal].splice(name, 1);
   return `No one is eating our ${name} - it has been removed from the ${meal} menu!`;
-  // }else if (name === "Mom's Spaghetti"){
-  //  return `Sorry, we don't sell ${name}, try adding a new recipe!`
-  // };
+  }else{
+   return `Sorry, we don't sell ${name}, try adding a new recipe!`
+  };
 };
 
 
