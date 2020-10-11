@@ -8,16 +8,16 @@ function createRestaurant(name) {
   return pizzaRestaurant;
 }
 
-function addMenuItem(place, item){
-    if (!place.menus[item.type].includes(item)){
-    place.menus[item.type].push(item);
+function addMenuItem(eateryName, item){
+    if (!eateryName.menus[item.type].includes(item)){
+    eateryName.menus[item.type].push(item);
   }
 };
 
-function removeMenuItem(place, name, meal){
+function removeMenuItem(eateryName, name, meal){
   var passedItem = (food) => (food.name === name);
-  if (place.menus[meal].some(passedItem)){
-  place.menus[meal].splice(name, 1);
+  if (eateryName.menus[meal].some(passedItem)){
+  eateryName.menus[meal].splice(name, 1);
   return `No one is eating our ${name} - it has been removed from the ${meal} menu!`;
   }else{
    return `Sorry, we don't sell ${name}, try adding a new recipe!`
