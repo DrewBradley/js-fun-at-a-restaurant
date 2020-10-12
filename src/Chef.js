@@ -12,14 +12,16 @@ class Chef {
     }
   }
 
-  checkForFood(foodName){
-    var foodProperty = foodName;
-    var passedFood = foodName.hasOwnProperty(foodProperty)
-    if (passedFood){
-      return `Yes, we're serving ${foodName.name} today!`
+  checkForFood(foodItem){
+    var mealType = foodItem.type;
+    var foodArray = this.restaurant.menus[mealType];
+    for (var i = 0; i < foodArray.length; i++){
+    if (foodArray[i].name === foodItem.name){
+      return `Yes, we're serving ${foodItem.name} today!`
     }
-    return `Sorry, we aren't serving ${foodName.name} today.` 
   }
+  return `Sorry, we aren't serving ${foodItem.name} today.`
+}
 };
 
 
